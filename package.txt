@@ -1,0 +1,12 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install PyPDF2
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install NLTK
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install pandas
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install xlrd
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install openpyxl
+PS C:\Users\mdc_2\PycharmProjects\pythonProject\venv> pip install xlwt
+
