@@ -17,3 +17,5 @@ https://onedrive.live.com/view.aspx?resid=D37B1A932A66F75E!28728&ithint=file%2cp
 
 july 17:
 https://1drv.ms/p/s!Al73ZiqTGnvTgeBJLoMfoAvsbmqvrw?e=WaeXIA
+
+https://onedrive.live.com/view.aspx?resid=D37B1A932A66F75E!28745&ithint=file%2cpptx&authkey=!AmXZVNhxhoCZ3Jo
