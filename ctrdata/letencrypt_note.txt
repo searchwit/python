@@ -132,3 +132,6 @@ CustomLog /var/log/httpd/searchwit_access.log combined
 [opc@instance-20220820-www conf.d]$  pwd
 /etc/httpd/conf.d
 [opc@instance-20220820-www conf.d]$
+
+to start/stop apache http
+apachectl stop, start, status etc. 
