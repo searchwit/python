@@ -1,0 +1,134 @@
+step one:
+
+sudo certbot certonly --standalone
+[opc@simple-may262021 https_keys]$ mkdir 20230410
+[opc@simple-may262021 https_keys]$ cd 20230410/
+[opc@simple-may262021 20230410]$ sudo certbot certonly --standalone
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+An RSA certificate named dev.searchwit.com already exists. Do you want to update
+its key type to ECDSA?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(U)pdate key type/(K)eep existing key type: U
+Renewing an existing certificate for searchwit.com and 7 more domains
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Could not bind TCP port 80 because it is already in use by another process on
+this system (such as a web server). Please stop the program in question and then
+try again.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(R)etry/(C)ancel: R
+
+Certbot failed to authenticate some domains (authenticator: standalone). The Certificate Authority reported these problems:
+  Domain: searchwit.com
+  Type:   connection
+  Detail: 150.136.169.76: Fetching https://www.searchwit.com.well-known/acme-challenge/RALrMVBkzK3inARgHwB1e1_mHD6HeRiyy_AGxcvRzvQ: Invalid host in redirect target "www.searchwit.com.well-known". Check webserver config for missing '/' in redirect target.
+
+  Domain: www.searchwit.com
+  Type:   connection
+  Detail: 150.136.169.76: Fetching https://www.searchwit.com.well-known/acme-challenge/7cgMn48yo9vMZbbpbqc0-EGJbT4B9tKB6WVKMRWsOpo: Invalid host in redirect target "www.searchwit.com.well-known". Check webserver config for missing '/' in redirect target.
+
+  Domain: countrycode.searchwit.com
+  Type:   unauthorized
+  Detail: 129.158.216.115: Invalid response from http://countrycode.searchwit.com/.well-known/acme-challenge/ilsUlyRermI-7FJLYg98ong7aNm9tYWtI0prTKJUUIU: 404
+
+  Domain: dev.searchwit.com
+  Type:   unauthorized
+  Detail: 129.158.216.115: Invalid response from http://dev.searchwit.com/.well-known/acme-challenge/hKpGjaUCWGuCm6PQ4rvTWzt-KI96sg8BOOSmcwiFx10: 404
+
+Hint: The Certificate Authority failed to download the challenge files from the temporary standalone webserver started by Certbot on port 80. Ensure that the listed domains point to this machine and that it can accept inbound connections from the internet.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+[opc@simple-may262021 20230410]$
+
+----------working on after go to domains.google.com to update the dns to point to 238 
+[opc@simple-may262021 20230410]$ sudo certbot certonly --standalone
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+An RSA certificate named dev.searchwit.com already exists. Do you want to update
+its key type to ECDSA?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(U)pdate key type/(K)eep existing key type: U
+Renewing an existing certificate for searchwit.com and 7 more domains
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/dev.searchwit.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/dev.searchwit.com/privkey.pem
+This certificate expires on 2023-07-09.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+step 2:
+
+copy the 4 pem file into a folder. in this case they are version 4:
+-rw-r--r--. 1 root root  241 Apr 10 12:46 privkey4.pem
+-rw-r--r--. 1 root root 5534 Apr 10 12:46 fullchain4.pem
+-rw-r--r--. 1 root root 3749 Apr 10 12:46 chain4.pem
+-rw-r--r--. 1 root root 1785 Apr 10 12:46 cert4.pem
+
+openssl pkcs12 -export -name watchlist -in ./fullchain4.pem -inkey ./privkey4.pem -out jetty.pkcs12
+
+enter pasword:  august0820
+
+this will create a new file: jetty.pkcs12
+-rw-rw-r--. 1 opc  opc  4637 Apr 10 13:19 jetty.pkcs12
+
+copy the above 5 files to my local hp laptop
+run the below (need java 11)
+keytool -importkeystore -destkeystore watchlist_keystore -deststoretype jks -srckeystore ./jetty.pkcs12 -srcstoretype pkcs12 -alias watchlist
+
+this will create a watchlist_keystore file
+copy the watchlist_keystore file to searchwit_keystore file
+
+cp the keystore file to java application
+cp the pem file to http servers
+
+http conf at 
+/etc/httpd/conf.d/searchwit.com.conf
+
+change to use the new pem file (*4.pm in this case)
+
+SSLCertificateFile /etc/pki/tls/certs/fullchain4.pem
+SSLCertificateKeyFile /etc/pki/tls/private/privkey4.pem
+
+[opc@instance-20220820-www ~]$ more website_readme
+[opc@instance-20220820-www conf.d]$ more searchwit.com.conf
+#Listen *:80
+
+<VirtualHost *:80>
+
+ServerName searchwit.com
+ServerAlias www.searchwit.com
+
+Redirect "/" "https://www.searchwit.com"
+
+</VirtualHost>
+
+<VirtualHost *:443>
+
+ServerName searchwit.com
+ServerAlias www.searchwit.com
+
+SSLCertificateFile /etc/pki/tls/certs/fullchain2.pem
+SSLCertificateKeyFile /etc/pki/tls/private/privkey2.pem
+
+
+DocumentRoot /var/www/searchwit/html/
+
+ErrorLog /var/log/httpd/searchwit_error.log
+CustomLog /var/log/httpd/searchwit_access.log combined
+
+
+</VirtualHost>
+
+[opc@instance-20220820-www conf.d]$  pwd
+/etc/httpd/conf.d
+[opc@instance-20220820-www conf.d]$
