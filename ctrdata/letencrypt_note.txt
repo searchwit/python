@@ -20,6 +20,13 @@ list of domains:
 
 searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com, aml.searchwit.com, simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com, ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com, watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com
 
+godaddy 
+25324170
+1ft7emf478rmq281
+
+https://sso.secureserver.net/login?app=dcc&path=%2fdomains%3fprog_id%3d412956%26username%3d25324170&auth_reason=1
+
+	www	simpleofac.github.io.
 
 step one:
 
