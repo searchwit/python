@@ -1,3 +1,26 @@
+dns info:
+searchwit.com	A	1 hour	
+150.136.169.76
+countrycode.searchwit.com	A	1 hour	
+129.158.216.115
+ctr.searchwit.com	A	1 hour	
+129.158.216.115
+dev.searchwit.com	A	1 hour	
+129.158.216.115
+ofac.searchwit.com	A	1 hour	
+129.213.123.238
+uat.searchwit.com	A	1 hour	
+129.213.123.238
+watchlist.searchwit.com	A	1 hour	
+129.213.123.238
+www.searchwit.com	A	1 hour	
+150.136.169.76
+
+list of domains:
+
+searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com, aml.searchwit.com, simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com, ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com, watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com
+
+
 step one:
 
 sudo certbot certonly --standalone
@@ -73,6 +96,24 @@ copy the 4 pem file into a folder. in this case they are version 4:
 -rw-r--r--. 1 root root 5534 Apr 10 12:46 fullchain4.pem
 -rw-r--r--. 1 root root 3749 Apr 10 12:46 chain4.pem
 -rw-r--r--. 1 root root 1785 Apr 10 12:46 cert4.pem
+
+updated July 28, 2023:
+the keys are in 
+/etc/letsencrypt/archive/dev.searchwit.com/fullchain5.pem
+copy to /
+[opc@simple-may262021 july282023]$ ls -lrt
+total 20
+-rw-------. 1 root root  241 Jul 28 12:37 privkey5.pem
+-rw-r--r--. 1 root root 5729 Jul 28 12:37 fullchain5.pem
+-rw-r--r--. 1 root root 3749 Jul 28 12:37 chain5.pem
+-rw-r--r--. 1 root root 1980 Jul 28 12:37 cert5.pem
+[opc@simple-may262021 july282023]$  pwd
+/home/opc/https_keys/july282023
+
+need to update the permission on primay key file ( sudo chmod o+r *)
+
+openssl pkcs12 -export -name watchlist -in ./fullchain5.pem -inkey ./privkey5.pem -out jetty.pkcs12
+august0820
 
 openssl pkcs12 -export -name watchlist -in ./fullchain4.pem -inkey ./privkey4.pem -out jetty.pkcs12
 
