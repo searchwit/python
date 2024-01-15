@@ -1,4 +1,8 @@
 # python
+icd
+https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/ICD10CM/2024-Update/
+https://www.cms.gov/medicare/coding-billing/icd-10-codes/2024-icd-10-pcs
+
 https://www.youtube.com/watch?v=PXjI2GzXc1U
 
 https://onedrive.live.com/?id=root&cid=682CA8E8071AB0DA&qt=mru
