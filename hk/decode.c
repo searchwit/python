@@ -8,3 +8,16 @@ spring.datasource.username=flink
 spring.datasource.password=Chtian200644201
 spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
 
+  select customer_id, customer_name from customers;
+/home/e06836/bigdata/cust_01.txt;
+false;
+select txn_id,run_date, c.customer_id, ORIGINATOR_BANK_KEY, BENEFICIARY_KEY, c.customer_name, ORIGINATOR, BENEFICIARY_NAME
+from transactions t
+--join accounts a on t.account_id = a.account_id
+join customers c on c.customer_id = t.PRIMARY_CUSTOMER_ID;
+
+/home/e06836/bigdata/txn_01.txt;
+false;
+RUN_DATE
+
+
