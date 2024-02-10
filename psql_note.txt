@@ -1,0 +1,73 @@
+  top
+    2  df -h
+    3  cd /etc
+    4  ls
+    5  more system-release
+    6  cd ~
+    7  pwd
+    8  mkdir psql
+    9  set -o vi
+   10  cd psql/
+   11  sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+   12  sudo dnf -qy module disable postgresql
+   13  sudo dnf install -y postgresql15-server
+   14  sudo /usr/pgsql-15/bin/postgresql-15-setup initdb
+   15  sudo systemctl enable postgresql-15
+   16  sudo systemctl start postgresql-15
+   17  vi psql_install.log
+   18  psql
+   19  more /etc/passwd
+   20  sudo su -
+   21  ls
+   22  mpre psql_install.log
+   23  more psql_install.log
+   24   cd /
+   25  find . -name "pg_hba.conf"
+   26  find . -name "pg_hba.conf" | grep conf
+   27  find . -name "pg_hba.conf"  > conf
+   28  find . -name "pg_hba.conf"  > ~/conf
+   29  cd ~
+   30  ls
+   31  more conf
+   32  sudo su -
+   33  set -o vi
+   34  sudo su -
+   35  pwd
+   36  whoami
+   37  sudo firewall-cmd --zone=public --permanent --add-port=5432/tcp
+   38  sudo firewall-cmd --reload
+   39  ls -lrt
+   40  more conf
+   41  rm conf
+   42  cd psql/
+   43  ls
+   44  vi firewall_cmd.txt
+   45  more psql_install.log
+   46  sudo systemctl restart postgresql-15
+   47  ls -lrt
+   48  vi create_user.sql
+   49  sudo su -
+   50  ls -lrt
+   51  more create_user.sql
+   52  sudo su -
+   53  ls
+   54  ls -lrt
+   55  vi create_user.sql
+   56  whoami
+   57  sudo su - flink
+   58  exit
+   59  top
+   60  exit
+   61  set -o vi
+   62  /sudo
+   63  sudo su - flink
+   64  exit
+   65  uptime
+   66  ls -lrt
+   67  pwd
+   68  cd psql/
+   69  ls
+   70  ls -lr
+   71  more create_user.sql
+   72  cd ..
+   73  history > hist_0830
