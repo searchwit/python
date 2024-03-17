@@ -1,3 +1,6 @@
+#java 
+sudo alternatives --config java
+
 # python
 icd
 https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/ICD10CM/2024-Update/
