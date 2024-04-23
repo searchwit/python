@@ -18,7 +18,7 @@ www.searchwit.com	A	1 hour
 
 list of domains:
 
-searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com, aml.searchwit.com, simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com, ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com, watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com
+searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com, aml.searchwit.com, lookup.searchwit.com, bible.searchwit.com, simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com, ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com, watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com, lookup.simpleofac.com, bible.simpleofac.com
 
 godaddy 
 25324170
@@ -30,70 +30,60 @@ https://sso.secureserver.net/login?app=dcc&path=%2fdomains%3fprog_id%3d412956%26
 
 step one:
 
-sudo certbot certonly --standalone
-[opc@simple-may262021 https_keys]$ mkdir 20230410
-[opc@simple-may262021 https_keys]$ cd 20230410/
-[opc@simple-may262021 20230410]$ sudo certbot certonly --standalone
+[opc@simple-may262021 bin]$ sudo ./shutdown.sh
+Using CATALINA_BASE:   /home/opc/tomcat10
+Using CATALINA_HOME:   /home/opc/tomcat10
+Using CATALINA_TMPDIR: /home/opc/tomcat10/temp
+Using JRE_HOME:        /usr/lib/jvm/jdk-17-oracle-x64
+Using CLASSPATH:       /home/opc/tomcat10/bin/bootstrap.jar:/home/opc/tomcat10/bin/tomcat-juli.jar
+Using CATALINA_OPTS:
+Using CATALINA_PID:    /home/opc/tomcat10/run/tomcat.pid
+Tomcat stopped.
+[opc@simple-may262021 bin]$ cd ~/https_keys/april22/
+[opc@simple-may262021 april22]$ sudo certbot certonly --standalone
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Please enter the domain name(s) you would like on your certificate (comma and/or
-space separated) (Enter 'c' to cancel): searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com
+space separated) (Enter 'c' to cancel): searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com, aml.searchwit.com, lookup.searchwit.com, bible.searchwit.com, simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com, ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com, watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com, lookup.simpleofac.com, bible.simpleofac.com
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-An RSA certificate named dev.searchwit.com already exists. Do you want to update
-its key type to ECDSA?
+You have an existing certificate that contains a portion of the domains you
+requested (ref: /etc/letsencrypt/renewal/uat.simpleofac.com.conf)
+
+It contains these names: searchwit.com, bible.searchwit.com,
+bible.simpleofac.com, countrycode.searchwit.com, countrycode.simpleofac.com,
+ctr.searchwit.com, ctr.simpleofac.com, dev.searchwit.com, dev.simpleofac.com,
+lookup.searchwit.com, lookup.simpleofac.com, ofac.searchwit.com,
+ofac.simpleofac.com, simpleofac.com, uat.searchwit.com, uat.simpleofac.com,
+watchlist.searchwit.com, watchlist.simpleofac.com, www.searchwit.com,
+www.simpleofac.com
+
+You requested these names for the new certificate: searchwit.com,
+www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com,
+dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com,
+ctr.searchwit.com, aml.searchwit.com, lookup.searchwit.com, bible.searchwit.com,
+simpleofac.com, www.simpleofac.com, countrycode.simpleofac.com,
+ofac.simpleofac.com, dev.simpleofac.com, uat.simpleofac.com,
+watchlist.simpleofac.com, ctr.simpleofac.com, aml.simpleofac.com,
+lookup.simpleofac.com, bible.simpleofac.com.
+
+Do you want to expand and replace this existing certificate with the new
+certificate?
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(U)pdate key type/(K)eep existing key type: U
-Renewing an existing certificate for searchwit.com and 7 more domains
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-Could not bind TCP port 80 because it is already in use by another process on
-this system (such as a web server). Please stop the program in question and then
-try again.
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(R)etry/(C)ancel: R
-
-Certbot failed to authenticate some domains (authenticator: standalone). The Certificate Authority reported these problems:
-  Domain: searchwit.com
-  Type:   connection
-  Detail: 150.136.169.76: Fetching https://www.searchwit.com.well-known/acme-challenge/RALrMVBkzK3inARgHwB1e1_mHD6HeRiyy_AGxcvRzvQ: Invalid host in redirect target "www.searchwit.com.well-known". Check webserver config for missing '/' in redirect target.
-
-  Domain: www.searchwit.com
-  Type:   connection
-  Detail: 150.136.169.76: Fetching https://www.searchwit.com.well-known/acme-challenge/7cgMn48yo9vMZbbpbqc0-EGJbT4B9tKB6WVKMRWsOpo: Invalid host in redirect target "www.searchwit.com.well-known". Check webserver config for missing '/' in redirect target.
-
-  Domain: countrycode.searchwit.com
-  Type:   unauthorized
-  Detail: 129.158.216.115: Invalid response from http://countrycode.searchwit.com/.well-known/acme-challenge/ilsUlyRermI-7FJLYg98ong7aNm9tYWtI0prTKJUUIU: 404
-
-  Domain: dev.searchwit.com
-  Type:   unauthorized
-  Detail: 129.158.216.115: Invalid response from http://dev.searchwit.com/.well-known/acme-challenge/hKpGjaUCWGuCm6PQ4rvTWzt-KI96sg8BOOSmcwiFx10: 404
-
-Hint: The Certificate Authority failed to download the challenge files from the temporary standalone webserver started by Certbot on port 80. Ensure that the listed domains point to this machine and that it can accept inbound connections from the internet.
-
-Some challenges have failed.
-Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
-[opc@simple-may262021 20230410]$
-
-----------working on after go to domains.google.com to update the dns to point to 238 
-[opc@simple-may262021 20230410]$ sudo certbot certonly --standalone
-Saving debug log to /var/log/letsencrypt/letsencrypt.log
-Please enter the domain name(s) you would like on your certificate (comma and/or
-space separated) (Enter 'c' to cancel): searchwit.com, www.searchwit.com, countrycode.searchwit.com, ofac.searchwit.com, dev.searchwit.com, uat.searchwit.com, watchlist.searchwit.com, ctr.searchwit.com
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-An RSA certificate named dev.searchwit.com already exists. Do you want to update
-its key type to ECDSA?
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-(U)pdate key type/(K)eep existing key type: U
-Renewing an existing certificate for searchwit.com and 7 more domains
+(E)xpand/(C)ancel: E
+Renewing an existing certificate for searchwit.com and 21 more domains
 
 Successfully received certificate.
-Certificate is saved at: /etc/letsencrypt/live/dev.searchwit.com/fullchain.pem
-Key is saved at:         /etc/letsencrypt/live/dev.searchwit.com/privkey.pem
-This certificate expires on 2023-07-09.
+Certificate is saved at: /etc/letsencrypt/live/uat.simpleofac.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/uat.simpleofac.com/privkey.pem
+This certificate expires on 2024-07-22.
 These files will be updated when the certificate renews.
 Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 step 2:
@@ -129,7 +119,7 @@ enter pasword:  august0820
 this will create a new file: jetty.pkcs12
 -rw-rw-r--. 1 opc  opc  4637 Apr 10 13:19 jetty.pkcs12
 
-copy the above 5 files to my local hp laptop
+copy the above 5 files to a separate folder: /home/opc/https_keys/apr22/
 run the below (need java 11)
 keytool -importkeystore -destkeystore watchlist_keystore -deststoretype jks -srckeystore ./jetty.pkcs12 -srcstoretype pkcs12 -alias watchlist
 
