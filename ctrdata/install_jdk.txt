@@ -13,3 +13,4 @@ udo apt install openjdk-17-jre-headless
 https://github.com/trinodb/trino/blob/1a1ca28fc2fa29ddac3e9ba1435e65f29325b764/pom.xml
 airbase 153
 airlift 243
+https://github.com/airlift/airlift/tree/198d5e6e9ba00a2af32356746c342e63b8db625e
