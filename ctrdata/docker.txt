@@ -1,0 +1,52 @@
+$ docker run -it ubuntu bash
+root@18e78382b32e:/#
+
+  $ docker ps -a
+CONTAINER ID IMAGE COMMAND CREATED STATUS
+c5e023cab033 ubuntu "bash" 5 minutes ago Exited (0) 1 second ago
+$ CONTAINER_ID=c5e023cab033
+$ docker start $CONTAINER_ID
+$ docker attach $CONTAINER_ID
+# echo "run more commands"
+# exit
+
+  docker system prune -a
+  
+  docker build . -t hello
+
+  FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y ruby
+COPY . /app
+WORKDIR /app
+To run, the only difference is the command that is passed:
+$ cd Chapter02-ruby/2.1.3_Dockerfile
+$ docker build . -t hello_ruby
+$ docker run hello_ruby ruby hello.rb
+
+default command
+FROM python:3
+COPY . /app
+WORKDIR /app
+CMD python3 hello.py
+
+  docker run -it -p 8080:80 timeserver
+Listening on 0.0.0.0:80
+  control c to stop
+
+  docker run -d -p 8080:80 timeserver.
+    docker ps -a
+
+ docker ps
+CONTAINER ID IMAGE COMMAND CREATED STATUS
+6989d3097d6b timeserver "/bin/sh -c 'python3…" 2 minutes ago Up 2 min
+$ CONTAINER_ID=6989d3097d6b
+$ docker exec -it $CONTAINER_ID sh
+# ls
+Dockerfile server.py
+# exit
+$
+
+    docker images
+
+docker cp server.py $CONTAINER_ID:/app
