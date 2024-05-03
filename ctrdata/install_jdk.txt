@@ -15,6 +15,12 @@ airbase 153
 airlift 243
 https://github.com/airlift/airlift/tree/198d5e6e9ba00a2af32356746c342e63b8db625e
 
+step to new/update java stsuff:
+1) get the trino/airlift repository of the version want to use
+2) get the current demised repository
+3) make the pom.xml for paraent
+first one see /home/e06836/learnjs/lab01/
+
 sudo apt-cache search openjdk
 apt install openjdk-21-jdk
 
