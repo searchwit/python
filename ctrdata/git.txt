@@ -1,0 +1,10 @@
+git branch -m main
+--- change master to main
+
+git remote add origin https://.....*.git
+
+git push --set-upstream origin main
+
+pnpm add dayjs
+
+pnpm dev
