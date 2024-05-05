@@ -8,3 +8,6 @@ git push --set-upstream origin main
 pnpm add dayjs
 
 pnpm dev
+
+--- sometime if not wokr, run 
+pnpm install 
