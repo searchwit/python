@@ -1,0 +1,29 @@
+lsmod | grep kvm
+
+Set up KVM device user permissions
+
+To check ownership of /dev/kvm, run :
+
+ ls -al /dev/kvm
+
+Add your user to the kvm group in order to access the kvm device:
+
+ sudo usermod -aG kvm $USER
+ sudo groups $USER
+
+ /etc/os-release   has verion info.
+
+ sudo apt-get update
+sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+sudo apt-get install ./docker-desktop-4.30.0-amd64.deb
+
+done:
+he post-install script:
+
+    Sets the capability on the Docker Desktop binary to map privileged ports and set resource limits.
+    Adds a DNS name for Kubernetes to /etc/hosts.
+    Creates a symlink from /usr/local/bin/com.docker.cli to /usr/bin/docker. 
+    This is because the classic Docker CLI is installed at /usr/bin/docker. 
+    The Docker Desktop installer also installs a Docker CLI binary that includes cloud-integration capabilities 
+    and is essentially a wrapper for the Compose CLI, 
+    at/usr/local/bin/com.docker.cli. The symlink ensures that the wrapper can access the classic Docker CLI.
